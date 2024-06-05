@@ -21,15 +21,14 @@ RUN apk add --no-cache \
   php83-mysqli \
   php83-opcache \
   php83-openssl \
+  php83-pdo_mysql \
   php83-phar \
   php83-session \
   php83-tokenizer \
   php83-xml \
   php83-xmlreader \
   php83-xmlwriter \
-  supervisor \
-  composer
-
+  supervisor 
 # Configure nginx - http
 COPY config/nginx.conf /etc/nginx/nginx.conf
 # Configure nginx - default server
@@ -47,7 +46,7 @@ COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 RUN chown -R nobody.nobody /var/www/html /run /var/lib/nginx /var/log/nginx
 
 # Create symlink for php
-RUN ln -s /usr/bin/php83 /usr/bin/php
+RUN ln -sf /usr/bin/php83 /usr/bin/php
 
 # Switch to use a non-root user from here on
 USER nobody
