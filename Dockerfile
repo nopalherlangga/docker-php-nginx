@@ -28,7 +28,6 @@ RUN apk add --no-cache \
   php83-xmlreader \
   php83-xmlwriter \
   supervisor \
-  node:22-alpine \
   composer
 
 # Configure nginx - http
