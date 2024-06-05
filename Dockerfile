@@ -54,7 +54,7 @@ RUN ln -s /usr/bin/php83 /usr/bin/php
 USER nobody
 
 # Add application
-COPY --chown=nobody src/ /var/www/html/
+COPY --chown=nobody src /var/www/html/default
 
 # Expose the port nginx is reachable on
 EXPOSE 8080
